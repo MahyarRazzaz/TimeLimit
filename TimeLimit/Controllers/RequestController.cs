@@ -11,7 +11,7 @@ namespace TimeLimit.Controllers
     public class RequestController : ControllerBase
     {
         private readonly AppDbContext _ctx;
-        private readonly ILogger<RequestController> _logger; // لاگر
+        private readonly ILogger<RequestController> _logger; 
 
         public RequestController(AppDbContext ctx, ILogger<RequestController> logger)
         {
@@ -25,7 +25,7 @@ namespace TimeLimit.Controllers
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
 
-            // 1️⃣ بررسی وجود کاربر
+            //  بررسی وجود کاربر
             var user = await _ctx.Users
                 .FirstOrDefaultAsync(u => u.PhoneNumber == dto.TargetPhoneNumber);
 
@@ -36,13 +36,13 @@ namespace TimeLimit.Controllers
                 await _ctx.SaveChangesAsync();
             }
 
-            // 2️⃣ پیدا کردن آخرین درخواست کاربر
+            //  پیدا کردن آخرین درخواست کاربر
             var lastRequest = await _ctx.Requests
                 .Where(r => r.UserId == user.Id)
                 .OrderByDescending(r => r.RequestedAtUtc)
                 .FirstOrDefaultAsync();
 
-            // 3️⃣ ثبت درخواست جدید
+            //  ثبت درخواست جدید
             var currentRequest = new Request
             {
                 TargetPhoneNumber = dto.TargetPhoneNumber,
@@ -53,21 +53,21 @@ namespace TimeLimit.Controllers
             _ctx.Requests.Add(currentRequest);
             await _ctx.SaveChangesAsync();
 
-            // 4️⃣ منطق پاسخ‌دهی
+            //   پاسخ‌دهی
             if (lastRequest == null)
             {
-                // یعنی اولین درخواست است → پاسخی نده
+                //   پاسخی نده
                 return NoContent(); // 204 No Content
             }
             else
             {
-                // درخواست قبلی وجود داره → زمان بین دو درخواست
+                //  زمان بین دو درخواست
                 var timeDiff = (currentRequest.RequestedAtUtc - lastRequest.RequestedAtUtc);
                 return Ok(new
                 {
                     PreviousRequestId = lastRequest.Id,
                     TimeDifferenceSeconds = timeDiff.TotalSeconds,
-                    Message = "این پاسخ مربوط به درخواست قبلی است."
+                    Message = " پاسخ درخواست قبلی"
                 });
             }
         }
