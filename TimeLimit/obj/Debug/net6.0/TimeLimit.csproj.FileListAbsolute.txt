@@ -66,3 +66,14 @@ G:\pc-learn\c#\2022(api)\TestTime\TimeLimit\TimeLimit\obj\Debug\net6.0\refint\Ti
 G:\pc-learn\c#\2022(api)\TestTime\TimeLimit\TimeLimit\obj\Debug\net6.0\TimeLimit.pdb
 G:\pc-learn\c#\2022(api)\TestTime\TimeLimit\TimeLimit\obj\Debug\net6.0\TimeLimit.genruntimeconfig.cache
 G:\pc-learn\c#\2022(api)\TestTime\TimeLimit\TimeLimit\obj\Debug\net6.0\ref\TimeLimit.dll
+G:\pc-learn\c#\2022(api)\TestTime\TimeLimit\TimeLimit\bin\Debug\net6.0\libman.json
+G:\pc-learn\c#\2022(api)\TestTime\TimeLimit\TimeLimit\bin\Debug\net6.0\Microsoft.Extensions.DependencyModel.dll
+G:\pc-learn\c#\2022(api)\TestTime\TimeLimit\TimeLimit\bin\Debug\net6.0\Serilog.dll
+G:\pc-learn\c#\2022(api)\TestTime\TimeLimit\TimeLimit\bin\Debug\net6.0\Serilog.AspNetCore.dll
+G:\pc-learn\c#\2022(api)\TestTime\TimeLimit\TimeLimit\bin\Debug\net6.0\Serilog.Extensions.Hosting.dll
+G:\pc-learn\c#\2022(api)\TestTime\TimeLimit\TimeLimit\bin\Debug\net6.0\Serilog.Extensions.Logging.dll
+G:\pc-learn\c#\2022(api)\TestTime\TimeLimit\TimeLimit\bin\Debug\net6.0\Serilog.Formatting.Compact.dll
+G:\pc-learn\c#\2022(api)\TestTime\TimeLimit\TimeLimit\bin\Debug\net6.0\Serilog.Settings.Configuration.dll
+G:\pc-learn\c#\2022(api)\TestTime\TimeLimit\TimeLimit\bin\Debug\net6.0\Serilog.Sinks.Console.dll
+G:\pc-learn\c#\2022(api)\TestTime\TimeLimit\TimeLimit\bin\Debug\net6.0\Serilog.Sinks.Debug.dll
+G:\pc-learn\c#\2022(api)\TestTime\TimeLimit\TimeLimit\bin\Debug\net6.0\Serilog.Sinks.File.dll

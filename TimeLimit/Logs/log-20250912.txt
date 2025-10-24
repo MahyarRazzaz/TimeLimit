@@ -1,0 +1,41 @@
+2025-09-12 23:57:01.605 +03:30 [INF] Now listening on: https://localhost:7036
+2025-09-12 23:57:01.655 +03:30 [INF] Now listening on: http://localhost:5135
+2025-09-12 23:57:01.660 +03:30 [INF] Application started. Press Ctrl+C to shut down.
+2025-09-12 23:57:01.661 +03:30 [INF] Hosting environment: Development
+2025-09-12 23:57:01.662 +03:30 [INF] Content root path: G:\pc-learn\c#\2022(api)\TestTime\TimeLimit\TimeLimit\
+2025-09-12 23:57:02.398 +03:30 [INF] Request starting HTTP/2 GET https://localhost:7036/ - -
+2025-09-12 23:57:02.531 +03:30 [INF] Request finished HTTP/2 GET https://localhost:7036/ - - - 404 0 - 136.3971ms
+2025-09-12 23:57:06.146 +03:30 [INF] Request starting HTTP/2 GET https://localhost:7036/swagger/index.html - -
+2025-09-12 23:57:06.311 +03:30 [INF] Request finished HTTP/2 GET https://localhost:7036/swagger/index.html - - - 200 - text/html;charset=utf-8 165.3268ms
+2025-09-12 23:57:06.318 +03:30 [INF] Request starting HTTP/2 GET https://localhost:7036/_framework/aspnetcore-browser-refresh.js - -
+2025-09-12 23:57:06.325 +03:30 [INF] Request starting HTTP/2 GET https://localhost:7036/_vs/browserLink - -
+2025-09-12 23:57:06.326 +03:30 [INF] Request finished HTTP/2 GET https://localhost:7036/_framework/aspnetcore-browser-refresh.js - - - 200 12350 application/javascript;+charset=utf-8 7.9849ms
+2025-09-12 23:57:06.354 +03:30 [INF] Request finished HTTP/2 GET https://localhost:7036/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 29.1344ms
+2025-09-12 23:57:06.411 +03:30 [INF] Request starting HTTP/2 GET https://localhost:7036/swagger/v1/swagger.json - -
+2025-09-12 23:57:06.520 +03:30 [INF] Request finished HTTP/2 GET https://localhost:7036/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 109.1468ms
+2025-09-12 23:59:33.308 +03:30 [INF] Request starting HTTP/2 POST https://localhost:7036/api/Request/send application/json 40
+2025-09-12 23:59:33.325 +03:30 [INF] Executing endpoint 'TimeLimit.Controllers.RequestController.Send (TimeLimit)'
+2025-09-12 23:59:33.347 +03:30 [INF] Route matched with {action = "Send", controller = "Request"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Send(TimeLimit.Dtos.SendOtpDto) on controller TimeLimit.Controllers.RequestController (TimeLimit).
+2025-09-12 23:59:33.508 +03:30 [INF] دریافت درخواست ارسال OTP برای شماره 09199885370
+2025-09-12 23:59:34.112 +03:30 [INF] Entity Framework Core 6.0.21 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.21' with options: None
+2025-09-12 23:59:34.846 +03:30 [INF] Executed DbCommand (59ms) [Parameters=[@__dto_TargetPhoneNumber_0='?' (Size = 20)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[PhoneNumber]
+FROM [Users] AS [u]
+WHERE [u].[PhoneNumber] = @__dto_TargetPhoneNumber_0
+2025-09-12 23:59:34.949 +03:30 [INF] Executed DbCommand (5ms) [Parameters=[@__user_Id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [r].[Id], [r].[RequestedAtUtc], [r].[TargetPhoneNumber], [r].[UserId]
+FROM [Requests] AS [r]
+WHERE [r].[UserId] = @__user_Id_0
+ORDER BY [r].[RequestedAtUtc] DESC
+2025-09-12 23:59:35.100 +03:30 [INF] Executed DbCommand (8ms) [Parameters=[@p0='?' (DbType = DateTime2), @p1='?' (Size = 20), @p2='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [Requests] ([RequestedAtUtc], [TargetPhoneNumber], [UserId])
+VALUES (@p0, @p1, @p2);
+SELECT [Id]
+FROM [Requests]
+WHERE @@ROWCOUNT = 1 AND [Id] = scope_identity();
+2025-09-12 23:59:35.154 +03:30 [INF] درخواست جدید برای شماره 09199885370 ثبت شد. RequestId=6
+2025-09-12 23:59:35.167 +03:30 [INF] Executing OkObjectResult, writing value of type 'System.String'.
+2025-09-12 23:59:35.179 +03:30 [INF] Executed action TimeLimit.Controllers.RequestController.Send (TimeLimit) in 1821.7033ms
+2025-09-12 23:59:35.182 +03:30 [INF] Executed endpoint 'TimeLimit.Controllers.RequestController.Send (TimeLimit)'
+2025-09-12 23:59:35.190 +03:30 [INF] Request finished HTTP/2 POST https://localhost:7036/api/Request/send application/json 40 - 200 - text/plain;+charset=utf-8 1881.7254ms
